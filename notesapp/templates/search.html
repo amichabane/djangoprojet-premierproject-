@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if notes %}
+<ol class="list-group">
+    {% for note in notes %}
+    <a href=" {% url 'note' note.id %} ">
+    <li class="list-group-item">
+
+        <div class="noteContainer">
+            <div id="headingAndIconsContainer">
+                <div class="">
+                    <h4><strong>{{note.heading}}</strong></h4>
+                </div>
+                <div id="icons">
+                    <a href=" {% url 'note' note.id %}">
+                        <span class="span"> <button class="btn btn-primary icons"><i
+                                    class="fas fa-pen"></i></button></i></span>
+                    </a>
+
+                    <a href="{% url 'delete' note.id %}">
+                        <span class="span"> <button class="btn btn-danger icons"><i
+                            class="fas fa-trash-alt"></i></button></i></span>
+                    </a>
+                    
+
+                </div>
+
+            </div>
+
+            <div id="notes">
+                <p>{{note.text | slice:"100"}}</p>
+            </div>
+            <p style="float: right; font-size: 12px"><strong>{{note.time}}</strong></p>
+        </div>
+    </li>
+    </a>
+    {% endfor %}
+</ol>
+{% else %}
+<h4 class = "bg-light msg">Note Not Found</h4>
+
+{% endif %}
+
+{% endblock %}

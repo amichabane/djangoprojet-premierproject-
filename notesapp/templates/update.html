@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="updateForm">
+    <form method = "POST">
+        {% csrf_token %}
+        <label for="inputText4" class="form-label"><strong>Title:</strong></label>
+        {{form.title}}
+        <br>
+
+            <label for="exampleFormControlTextarea1" class="form-label"><strong>Description:</strong></label>
+            {{form.description}}
+            <br>
+        <label for="exampleFormControlTextarea1" class="form-label"><strong>Category:</strong></label>
+        <input type="checkbox" name="{{note.id}}" id="{{note.id}}" value="{{note.id}}">{{form.tags}}
+
+         
+
+            <input class="btn btn-primary" type="submit" style = "width: 100%" value = "Save">
+            <!-- <input class="btn btn-danger" type="submit" style = "width: 100%" value = "Delete">
+            <input class="btn btn-primary" type="" style = "width: 100%" value = "Cancel"> -->
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+.container{
+    width: 400px;
+    padding: 0px !important;
+    height: 600px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: auto;
+    padding-bottom: 1rem !important;
+    
+}
+
+li{
+    border: 1px solid rgba(0,0,0,.125) !important;
+    padding-bottom: 0px;
+    height: auto !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+#add{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#customNav{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 10px 0px 10px ;
+}
+#formContainer{
+    position: relative;
+    width: 300px;
+}
+#submitBtn{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.fas{
+    cursor: pointer;
+}
+/* .span{
+    margin-right: 5px;
+} */
+.icons{
+    width: auto;
+    padding: 5px;
+}
+
+#headingAndIconsContainer{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.heading{
+    width: 100%;
+    border: 2px solid black;
+}
+#updateForm{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 20px;
+    /* border: 2px solid black; */
+}
+a:hover{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+.msg{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/cf9ed7dcd1.js" crossorigin="anonymous"></script>
+    <!-- <link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}"> -->
+
+    <link rel='stylesheet' href="{% static 'css/notes.css' %}">
+    <!-- <link rel='stylesheet' href="{% static 'css/all.css' %}"> -->
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div class = "row">
+                  <a class="navbar-brand" href="{% url 'index' %}"><strong>My NoteBook</strong></a>
+
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="light bg-light" id="customNav">
+            <!-- <h5>NOTEBOOK</h5> -->
+            <div id="formContainer">
+                <form method = "POST">
+                    {% csrf_token %}
+                    <input type="text" class="form-control" id="searchBar" placeholder="Search" name = "search" required>
+                    <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <a href="{% url 'new' %}">
+                <button type="button" class="btn btn-primary" id="addBtn"><i class="fas fa-plus"></i></button>
+            </a>
+
+
+        </div>
+        {% block content %}
+        <h1>Hello World</h1>
+        {% endblock %}
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
