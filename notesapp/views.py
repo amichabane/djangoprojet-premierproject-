@@ -13,16 +13,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-def new_note(request):
-    form = NotesForm()
-    if request.method == 'POST':
-        form = NotesForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("index")
-    return render(request, "update.html", {"form": form})
-
-
 def note_detail(request, pk):
     note = Notes.objects.get(id=pk)
     form = NotesForm(instance=note)
@@ -34,7 +24,6 @@ def note_detail(request, pk):
     return render(request, "update.html", {"note": note, "form": form})
 
 
-# def delete_note(request, pk):
 def delete_note(request, pk):
     note = Notes.objects.get(id=pk)
     form = NotesForm(instance=note)
@@ -72,12 +61,12 @@ def viewNotes(request):
     return render(request, 'viewNotes.html', locals())
 
 
-def deleteNotes(request, pid):
-    if not request.user.is_authenticated:
-        return redirect('signin')
-    notes = Notes.objects.get(id=pid)
-    notes.delete()
-    return redirect('viewNotes')
+# def deleteNotes(request, pid):
+#     if not request.user.is_authenticated:
+#         return redirect('signin')
+#     notes = Notes.objects.get(id=pid)
+#     notes.delete()
+#     return redirect('viewNotes')
 
 
 @login_required
