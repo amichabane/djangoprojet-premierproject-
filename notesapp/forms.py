@@ -11,9 +11,6 @@ class NotesForm(ModelForm):
     description = forms.CharField(max_length=500, widget=forms.Textarea(attrs={
          "class": "form-control", "placeholder":"Enter Notes", "rows":"8"
     }))
-    owner = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
-        "class": "form-control", "placeholder": "Enter Owner"
-    }))
 
     class Meta:
         model = Notes

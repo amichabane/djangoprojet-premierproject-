@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Notes
 from .forms import NotesForm
 from django.contrib import messages
-from User.models import CustomUser as User
+from User.models import User as User
 
 
 # Create your views here.
@@ -57,8 +58,8 @@ def dashboard(request):
     if not request.user.is_authenticated:
         return redirect('signin')
     user = User.objects.get(id=request.user.id)
-    signup = User.objects.get(username=user)
-    totalnotes = Notes.objects.filter(username=user).count()
+    signup = User.objects.get(email=user)
+    totalnotes = Notes.objects.count()
     return render(request, 'dashboard.html', locals())
 
 
@@ -66,8 +67,8 @@ def viewNotes(request):
     if not request.user.is_authenticated:
         return redirect('signin')
     user = User.objects.get(id=request.user.id)
-    signup = User.objects.get(username=user)
-    notes = Notes.objects.filter(signup=user)
+    signup = User.objects.get(email=user)
+    notes = Notes.objects.filter(user=signup)
     return render(request, 'viewNotes.html', locals())
 
 
@@ -79,17 +80,15 @@ def deleteNotes(request, pid):
     return redirect('viewNotes')
 
 
+@login_required
 def addNotes(request):
-    if not request.user.is_authenticated:
-        return redirect('signin')
-    user = User.objects.get(id=request.user.id)
-    signup = User.objects.get(username=user)
-
     error = ""
     if request.method == "POST":
         form = NotesForm(request.POST)
         if form.is_valid():
-            form.save()
+            note = form.save(commit=False)
+            note.user = request.user
+            note.save
     return render(request, 'addNotes.html', locals())
 
 

@@ -62,17 +62,4 @@
     </div>
 </section>
 
-{% if error == "no" %}
-<script>
-	   alert('New Notes Added Successfully.');
-       window.location=('{% url 'addNotes' %}');
-</script>
-{% endif %}
-
-{% if error == "yes" %}
-<script>
-	    alert('Something went wrong, Try Again');
-</script>
-{% endif %}
-
 {% endblock %}

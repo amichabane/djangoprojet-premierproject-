@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin.apps.SimpleAdminConfig',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,7 +51,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'notes.urls'
 
-AUTH_USER_MODEL = 'User.CustomUser'
+AUTH_USER_MODEL = 'User.User'
 
 TEMPLATES = [
     {
