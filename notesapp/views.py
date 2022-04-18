@@ -42,19 +42,15 @@ def search_page(request):
         #     messages.info(request, "Note not found")
         return render(request, "search.html", {"notes": notes})
 
-
+@login_required
 def dashboard(request):
-    if not request.user.is_authenticated:
-        return redirect('signin')
     user = User.objects.get(id=request.user.id)
     signup = User.objects.get(email=user)
     totalnotes = Notes.objects.count()
     return render(request, 'dashboard.html', locals())
 
-
+@login_required
 def viewNotes(request):
-    if not request.user.is_authenticated:
-        return redirect('signin')
     user = User.objects.get(id=request.user.id)
     signup = User.objects.get(email=user)
     notes = Notes.objects.filter(user=signup)
@@ -80,10 +76,8 @@ def addNotes(request):
             note.save
     return render(request, 'addNotes.html', locals())
 
-
+@login_required
 def editNotes(request, pid):
-    if not request.user.is_authenticated:
-        return redirect('signin')
     notes = Notes.objects.get(id=pid)
     if request.method == "POST":
         title = request.POST['Title']
@@ -92,9 +86,4 @@ def editNotes(request, pid):
         notes.Title = title
         notes.Content = content
 
-        try:
-            notes.save()
-            error = "no"
-        except:
-            error = "yes"
     return render(request, 'editNotes.html', locals())

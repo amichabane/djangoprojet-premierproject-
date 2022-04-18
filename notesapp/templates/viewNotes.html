@@ -36,8 +36,8 @@
                   {% for i in notes %}
                   <tr>
                         <td>{{forloop.counter}}</td>
-					    <td>{{ i.title }}</td>
-                        <td>{{i.description | slice:100 }}</td>
+					    <td>{{ i.title}}</td>
+                        <td>{{i.description | slice:100}}</td>
                         <td>{{i.date}}</td>
                         <td>{{i.tags}}</td>
                     <td><a href="{% url 'note' i.id %}" class="btn btn-primary">Edit</a> |
