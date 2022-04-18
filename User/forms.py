@@ -13,3 +13,8 @@ class SignUpForm(UserCreationForm):
 class LogInForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class EditForm(forms.Form):
+    email = forms.EmailField()
+    username=forms.CharField(max_length=200)

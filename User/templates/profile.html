@@ -18,8 +18,7 @@
             <div class="card">
                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                    <h2>{{user.first_name}} {{user.last_name}}</h2>
-                    <h3>{{signup.About}}</h3>
+                    <h2>{{request.user.username}}</h2>
                     <div class="social-links mt-2">
                         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -56,28 +55,13 @@
                             <h5 class="card-title">Profile Details</h5>
 
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                <div class="col-lg-9 col-md-8">{{user.first_name}} {{user.last_name}}</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 label ">About</div>
-                                <div class="col-lg-9 col-md-8">{{signup.About}}</div>
-                            </div>
-
-                            <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Email ID</div>
-                                <div class="col-lg-9 col-md-8">{{user.username}}</div>
+                                <div class="col-lg-9 col-md-8">{{request.user.email}}</div>
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Contact Number</div>
-                                <div class="col-lg-9 col-md-8">{{signup.ContactNo}}</div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 label">Registration Date</div>
-                                <div class="col-lg-9 col-md-8">{{signup.RegDate}}</div>
+                                <div class="col-lg-3 col-md-4 label">Username</div>
+                                <div class="col-lg-9 col-md-8">{{request.user.username}}</div>
                             </div>
                         </div>
 
@@ -90,35 +74,15 @@
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-lg-3 col-form-label">First Name</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="firstName" type="text" class="form-control" value="{{user.first_name}}">
+                                        <input name="firstName" type="text" class="form-control" value="{{request.user.username}}">
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
-                                    <label class="col-md-4 col-lg-3 col-form-label">Last Name</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="lastName" type="text" class="form-control" value="{{user.last_name}}">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="ContactNo" type="text" class="form-control" value="{{signup.ContactNo}}">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-md-4 col-lg-3 col-form-label">About</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="About" type="text" class="form-control" value="{{signup.About}}">
-                                    </div>
-                                </div>
 
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-lg-3 col-form-label">Email</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="email" type="email" class="form-control" value="{{user.username}}" readonly>
+                                        <input name="email" type="email" class="form-control" value="{{request.user.email}}" readonly>
                                     </div>
                                 </div>
 
